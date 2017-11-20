@@ -13,7 +13,7 @@ import java.lang.reflect.Type;
 public interface Requestor {
   
   /**
-   * Marshall the given operation and its parameters into a request object, send
+   * marshall the given operation and its parameters into a request object, send
    * it to the remote component, and interpret the answer and convert it back
    * into the return type of generic type T
    * 

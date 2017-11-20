@@ -3,11 +3,11 @@ package breakthrough.main;
 import breakthrough.domain.Breakthrough;
 import breakthrough.ui.ClientInterpreter;
 
-/** Client for breakthrough, using REST.
+/** client for breakthrough, using REST.
  */
 public class ClientMainREST {
   public static void main(String args[]) {
-    System.out.println("=== Client REST ===");
+    System.out.println("=== client REST ===");
 
     String host = args[0];
     String op = args[1];

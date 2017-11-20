@@ -8,7 +8,7 @@ import com.google.gson.Gson;
 import frs.broker.*;
 
 /**
- * Implementation of the Client Request Handler using simple sockets.
+ * Implementation of the client Request Handler using simple sockets.
  * As in HTTP protocol 1.0 days, the socket is opened and closed
  * on every call.
  */

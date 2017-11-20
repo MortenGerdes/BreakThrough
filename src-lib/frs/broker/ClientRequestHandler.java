@@ -1,7 +1,7 @@
 package frs.broker;
 
 /**
- * The Client Request Handler role in the Broker pattern.
+ * The client Request Handler role in the Broker pattern.
  * It is responsible for all inter-process-communication
  * (IPC) on behalf of client objects. It is called by the Requestor role. It
  * communicates over the network with an associated ServerRequestHandler on the

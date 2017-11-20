@@ -7,7 +7,7 @@ import frs.broker.Requestor;
 import frs.broker.ipc.socket.SocketClientRequestHandler;
 import frs.broker.marshall.json.StandardJSONRequestor;
 
-/** Client for breakthrough, using socket communication.
+/** client for breakthrough, using socket communication.
  * Hardcoded for port 37321, host given as argument.
  */
 public class ClientMainSocket {
@@ -22,7 +22,7 @@ public class ClientMainSocket {
     // TODO: Fill in the code to solve the exercise
 
     // Welcome
-    System.out.println("=== Client Socket. Host = "
+    System.out.println("=== client Socket. Host = "
             + host + " ===");
     // And start the interpreter...
     ClientInterpreter interpreter =

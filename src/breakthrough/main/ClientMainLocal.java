@@ -5,7 +5,7 @@ import breakthrough.domain.BreakthroughSurrogate;
 import breakthrough.ui.ClientInterpreter;
 
 /**
- * Client for breakthrough that is local, it just uses the Servant directly.
+ * client for breakthrough that is local, it just uses the Servant directly.
  */
 public class ClientMainLocal {
   public static void main(String args[]) {
@@ -14,7 +14,7 @@ public class ClientMainLocal {
     game = new BreakthroughSurrogate();
 
     // Welcome
-    System.out.println("=== Client Local ===");
+    System.out.println("=== client Local ===");
     // And start the interpreter...
     ClientInterpreter interpreter =
             new ClientInterpreter(game,
