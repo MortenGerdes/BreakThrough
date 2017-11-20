@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/breakthrough.iml" filepath="$PROJECT_DIR$/.idea/breakthrough.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BreakThrough.iml" filepath="$PROJECT_DIR$/BreakThrough.iml" />
     </modules>
   </component>
 </project>
