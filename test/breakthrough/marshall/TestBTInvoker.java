@@ -54,5 +54,9 @@ public class TestBTInvoker {
         assertThat(btProxy.getPieceAt(position1), is(btServant.getPieceAt(position1)));
     }
 
+    @Test
+    public void shouldInvokeMove(){
+        assertThat(btProxy.move(move), is(btServant.move(move)));
+    }
 
 }
