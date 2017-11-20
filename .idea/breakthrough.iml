@@ -18,7 +18,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="junit-4.12" level="project" />
     <orderEntry type="module-library">
       <library name="IvyIDEA">
         <CLASSES>
@@ -133,5 +132,6 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>
