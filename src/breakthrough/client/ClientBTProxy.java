@@ -23,16 +23,16 @@ public class ClientBTProxy implements ClientProxy, Breakthrough {
 
     @Override
     public Color getPlayerInTurn() {
-        return null;
+        return requestor.sendRequestAndAwaitReply("2", Constants.GET_PLAYER_IN_TURN, Color.class);
     }
 
     @Override
     public Color getWinner() {
-        return null;
+        return requestor.sendRequestAndAwaitReply("3", Constants.GET_WINNER, Color.class);
     }
 
     @Override
     public boolean move(Move move) {
-        return false;
+        return requestor.sendRequestAndAwaitReply("4", Constants.MOVE, Boolean.class, move);
     }
 }

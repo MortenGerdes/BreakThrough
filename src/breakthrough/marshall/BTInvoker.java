@@ -2,6 +2,7 @@ package breakthrough.marshall;
 
 import breakthrough.domain.Breakthrough;
 import breakthrough.domain.Color;
+import breakthrough.domain.Move;
 import breakthrough.domain.Position;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -34,6 +35,19 @@ public class BTInvoker implements Invoker {
             Color color = breakthrough.getPieceAt(pos);
             reply = new ReplyObject(HttpServletResponse.SC_OK, gson.toJson(color));
         }
-        return null;
+        else if(operationName.equals(Constants.GET_PLAYER_IN_TURN))
+        {
+            reply = new ReplyObject(HttpServletResponse.SC_OK, gson.toJson(breakthrough.getPlayerInTurn()));
+        }
+        else if(operationName.equals(Constants.GET_WINNER))
+        {
+            reply = new ReplyObject(HttpServletResponse.SC_OK, gson.toJson(breakthrough.getWinner()));
+        }
+        else if(operationName.equals(Constants.MOVE))
+        {
+            Move move = gson.fromJson(array.get(0), Move.class);
+            reply = new ReplyObject(HttpServletResponse.SC_OK, gson.toJson(breakthrough.move(move)));
+        }
+        return reply;
     }
 }
