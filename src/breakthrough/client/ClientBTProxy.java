@@ -1,9 +1,6 @@
 package breakthrough.client;
 
-import breakthrough.domain.Breakthrough;
-import breakthrough.domain.Color;
-import breakthrough.domain.Move;
-import breakthrough.domain.Position;
+import breakthrough.domain.*;
 import frs.broker.ClientProxy;
 import frs.broker.Constants;
 import frs.broker.Requestor;
@@ -34,5 +31,10 @@ public class ClientBTProxy implements ClientProxy, Breakthrough {
     @Override
     public boolean move(Move move) {
         return requestor.sendRequestAndAwaitReply("4", Constants.MOVE, Boolean.class, move);
+    }
+
+    public BreakthroughSurrogate getGame()
+    {
+        return requestor.sendRequestAndAwaitReply("5", Constants.GET_GAME, BreakthroughSurrogate.class);
     }
 }

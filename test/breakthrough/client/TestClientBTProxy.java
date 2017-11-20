@@ -1,8 +1,6 @@
 package breakthrough.client;
 
 
-import breakthrough.domain.Color;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -17,7 +15,7 @@ public class TestClientBTProxy {
     private ClientBTProxy btProxy;
 
     @Before
-    public void setup() {
+    public void setUp() {
         requester = new SpyRequester();
         btProxy = new ClientBTProxy(requester);
     }

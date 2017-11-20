@@ -2,6 +2,7 @@ package breakthrough.main;
 
 import breakthrough.domain.Breakthrough;
 import breakthrough.domain.BreakthroughSurrogate;
+import breakthrough.marshall.BTInvoker;
 import frs.broker.Invoker;
 import frs.broker.ipc.socket.SocketServerRequestHandler;
 
@@ -17,16 +18,18 @@ public class ServerMainSocket {
   public ServerMainSocket(int port) throws Exception {
     // Create a single servant object
     Breakthrough game = new BreakthroughSurrogate();
+    Invoker invoker = new BTInvoker(game);
 
     // TODO: Fill in the code to configure the srh.
-    SocketServerRequestHandler srh = null;
+    SocketServerRequestHandler srh = new SocketServerRequestHandler(port, invoker);
 
     // Welcome
     System.out.println("=== Breakthrough Socket (port:"
             + port + ") ===");
     System.out.println(" Use ctrl-c to terminate!");
-
-    srh.run();
+    Thread gameThread = new Thread(srh);
+    gameThread.start();
+    gameThread.join();
 
   }
 }

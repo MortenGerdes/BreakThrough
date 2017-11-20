@@ -11,4 +11,5 @@ public class Constants {
   public static final String GET_PLAYER_IN_TURN = "getplayerinturn";
   public static final String GET_WINNER = "getwinner";
   public static final String MOVE = "move";
+  public static final String GET_GAME = "getgame";
 }

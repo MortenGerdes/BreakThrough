@@ -48,6 +48,10 @@ public class BTInvoker implements Invoker {
             Move move = gson.fromJson(array.get(0), Move.class);
             reply = new ReplyObject(HttpServletResponse.SC_OK, gson.toJson(breakthrough.move(move)));
         }
+        else if(operationName.equals(Constants.GET_GAME))
+        {
+            reply = new ReplyObject(HttpServletResponse.SC_OK, gson.toJson(breakthrough));
+        }
         return reply;
     }
 }

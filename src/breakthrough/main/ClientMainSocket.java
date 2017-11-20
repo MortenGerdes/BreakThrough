@@ -1,9 +1,12 @@
 package breakthrough.main;
 
+import breakthrough.client.ClientBTProxy;
 import breakthrough.domain.Breakthrough;
+import breakthrough.domain.BreakthroughSurrogate;
 import breakthrough.ui.ClientInterpreter;
 import frs.broker.ClientRequestHandler;
 import frs.broker.Requestor;
+import frs.broker.ipc.http.UriTunnelClientRequestHandler;
 import frs.broker.ipc.socket.SocketClientRequestHandler;
 import frs.broker.marshall.json.StandardJSONRequestor;
 
@@ -17,7 +20,10 @@ public class ClientMainSocket {
 
   public ClientMainSocket(String host, int port) {
     // Create the game
-    Breakthrough game = null;
+    ClientRequestHandler crh = new SocketClientRequestHandler(host, port);
+    StandardJSONRequestor requester = new StandardJSONRequestor(crh);
+    ClientBTProxy proxy = new ClientBTProxy(requester);
+    Breakthrough game = new BreakthroughSurrogate();
 
     // TODO: Fill in the code to solve the exercise
 
