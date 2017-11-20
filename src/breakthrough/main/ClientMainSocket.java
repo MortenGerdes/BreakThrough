@@ -15,7 +15,7 @@ import frs.broker.marshall.json.StandardJSONRequestor;
  */
 public class ClientMainSocket {
   public static void main(String args[]) {
-    new ClientMainSocket(args[0], 37322);
+    new ClientMainSocket(args[0], 37321);
   }
 
   public ClientMainSocket(String host, int port) {
@@ -23,7 +23,7 @@ public class ClientMainSocket {
     ClientRequestHandler crh = new SocketClientRequestHandler(host, port);
     StandardJSONRequestor requester = new StandardJSONRequestor(crh);
     ClientBTProxy proxy = new ClientBTProxy(requester);
-    Breakthrough game = proxy.getGame();
+    Breakthrough game = new BTProxyGame(proxy);
 
     // Welcome
     System.out.println("=== client Socket. Host = "

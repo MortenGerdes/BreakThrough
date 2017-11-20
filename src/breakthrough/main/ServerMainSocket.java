@@ -12,7 +12,7 @@ import frs.broker.ipc.socket.SocketServerRequestHandler;
 public class ServerMainSocket {
   
   public static void main(String[] args) throws Exception {
-    new ServerMainSocket(37322); // No error handling!
+    new ServerMainSocket(37321); // No error handling!
   }
 
   public ServerMainSocket(int port) throws Exception {
