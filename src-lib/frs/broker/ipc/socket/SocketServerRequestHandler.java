@@ -42,6 +42,7 @@ public class SocketServerRequestHandler
       Socket clientSocket = null;
       try {
         clientSocket = serverSocket.accept();
+        System.out.println("Player connected!");
       } catch(IOException e) {
         if(isStopped) {
           System.out.println("Server Stopped.") ;
