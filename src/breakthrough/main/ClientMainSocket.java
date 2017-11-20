@@ -21,6 +21,7 @@ public class ClientMainSocket {
   public ClientMainSocket(String host, int port) {
     // Create the game
     ClientRequestHandler crh = new SocketClientRequestHandler(host, port);
+
     StandardJSONRequestor requester = new StandardJSONRequestor(crh);
     ClientBTProxy proxy = new ClientBTProxy(requester);
     Breakthrough game = new BTProxyGame(proxy);

@@ -1,5 +1,7 @@
 package breakthrough.domain;
 
+import frs.broker.Servant;
+
 /**
  * A 'surrogate' implementation for a Breakthrough game, the rules are not
  * really obeyed, but it has enough behavior to test most aspects of a Broker
@@ -9,7 +11,7 @@ package breakthrough.domain;
  * It is kind of a test double, but does not match any of Meszaros' categories,
  * thus it is named a surrogate.
  */
-public class BreakthroughSurrogate implements Breakthrough {
+public class BreakthroughSurrogate implements Breakthrough, Servant {
   GameState state;
 
   public BreakthroughSurrogate() {
