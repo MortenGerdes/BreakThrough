@@ -53,11 +53,5 @@ public class TestClientBTProxy {
         System.out.println(position1.toString());
     }
 
-    @Test
-    public void shouldValidateMove(){
-        btProxy.move(move);
-        assertThat(requester.lastObjectId, is("4"));
-        assertThat(requester.lastOperationName, is("move"));
-    }
 }
 
