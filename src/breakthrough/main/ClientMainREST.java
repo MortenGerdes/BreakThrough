@@ -1,5 +1,6 @@
 package breakthrough.main;
 
+import breakthrough.client.ClientBTProxyREST;
 import breakthrough.domain.Breakthrough;
 import breakthrough.ui.ClientInterpreter;
 
@@ -12,6 +13,7 @@ public class ClientMainREST {
     String host = args[0];
     String op = args[1];
     String location = args[2];
+    int port = 4567;
     System.out.println(" Op: " + op + ", Location: "+ location);
 
     // TODO: Replace the concrete type of the game with your
@@ -20,9 +22,11 @@ public class ClientMainREST {
 
     if (op.equals("create")) {
       // TODO: Create a Breakthrough REST proxy that CREATES a game resource
+      game = new ClientBTProxyREST(host, port);
     } else {
       // TODO: Create a Breakthrough REST proxy that connects to a
       // game resource on a specific Location
+      game = new ClientBTProxyREST(host, port, location);
     }
     
     // Start the interpreter

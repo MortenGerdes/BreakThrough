@@ -4,8 +4,10 @@ import breakthrough.domain.Breakthrough;
 import breakthrough.domain.BreakthroughSurrogate;
 import breakthrough.domain.Move;
 import breakthrough.domain.MoveState;
+import breakthrough.main.ResponseObject;
 import com.google.gson.Gson;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 
 public class ServerRestAdapter
@@ -14,25 +16,33 @@ public class ServerRestAdapter
     private HashMap<Integer, Breakthrough> gameDB = new HashMap<>();
     private Gson gson = new Gson();
 
-    public String postOnBreakthrough()
+    public ResponseObject postOnBreakthrough()
     {
         int nextGameID = findFirstAvailableGameID();
+        ResponseObject ro = new ResponseObject();
         Breakthrough game = new BreakthroughSurrogate();
+        System.out.println("Created new game with id = " + nextGameID);
 
         gameDB.put(nextGameID, game);
-        return nextGameID+"";
-
+        ro.setBody(nextGameID+"");
+        ro.setStatus(HttpServletResponse.SC_CREATED);
+        ro.addHeader("Location", "/breakthrough/create");
+        return ro;
     }
 
-    public Move putOnBreakthrough(String gameID, Move move)
+    public ResponseObject putOnBreakthrough(String gameID, Move move)
     {
-        Breakthrough game = gameDB.get(Integer.getInteger(gameID));
+        ResponseObject ro = new ResponseObject();
+        Breakthrough game = gameDB.get(Integer.parseInt(gameID));
         move.changeState(MoveState.REJECTED);
+        ro.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         if(game.move(move))
         {
             move.changeState(MoveState.ACCEPTED);
         }
-        return move;
+        ro.setBody(gson.toJson(move));
+        ro.setStatus(HttpServletResponse.SC_ACCEPTED);
+        return ro;
     }
 
     public String deleteOnBreakthrough(String gameID)
@@ -40,13 +50,17 @@ public class ServerRestAdapter
         return null;
     }
 
-    public String getOnBreakthrough(String gameID)
+    public ResponseObject getOnBreakthrough(String gameID)
     {
-        if(gameDB.containsKey(Integer.getInteger(gameID)))
+        ResponseObject ro = new ResponseObject();
+        if(gameDB.containsKey(Integer.parseInt(gameID)))
         {
-            return gson.toJson(gameDB.get(Integer.getInteger(gameID)));
+            ro.setBody(gson.toJson(gameDB.get(Integer.parseInt(gameID))));
+            ro.setStatus(HttpServletResponse.SC_OK);
+            return ro;
         }
-        return "notfound";
+        ro.setStatus(HttpServletResponse.SC_NOT_FOUND);
+        return ro;
     }
 
     private int findFirstAvailableGameID()
@@ -62,6 +76,6 @@ public class ServerRestAdapter
             }
             loopable++;
         }
-        return loopable+1;
+        return loopable;
     }
 }
