@@ -5,7 +5,6 @@ import breakthrough.domain.Breakthrough;
 import breakthrough.domain.Color;
 import breakthrough.domain.Move;
 import breakthrough.domain.Position;
-import frs.broker.Requestor;
 
 public class BTProxyGame implements Breakthrough {
     private ClientBTProxy requestor;

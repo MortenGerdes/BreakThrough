@@ -2,16 +2,16 @@ package breakthrough.ui;
 
 import breakthrough.domain.Breakthrough;
 import breakthrough.domain.BreakthroughSurrogate;
-import frs.broker.ClientRequestHandler;
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.junit.Assert.assertThat;
 
 
 /** Test the CLI UI.

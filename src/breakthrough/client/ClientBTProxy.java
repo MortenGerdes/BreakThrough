@@ -1,7 +1,9 @@
 package breakthrough.client;
 
-import breakthrough.domain.*;
-import breakthrough.main.BTProxyGame;
+import breakthrough.domain.Breakthrough;
+import breakthrough.domain.Color;
+import breakthrough.domain.Move;
+import breakthrough.domain.Position;
 import frs.broker.ClientProxy;
 import frs.broker.Constants;
 import frs.broker.Requestor;

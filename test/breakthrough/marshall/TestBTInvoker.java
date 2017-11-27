@@ -8,11 +8,11 @@ import breakthrough.doubles.LocalMethodCallClientRequestHandler;
 import frs.broker.ClientRequestHandler;
 import frs.broker.Invoker;
 import frs.broker.marshall.json.StandardJSONRequestor;
-import javafx.geometry.Pos;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 /**
  * Created by csdev on 11/20/17.
  */

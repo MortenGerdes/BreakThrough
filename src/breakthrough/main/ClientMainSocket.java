@@ -2,11 +2,8 @@ package breakthrough.main;
 
 import breakthrough.client.ClientBTProxy;
 import breakthrough.domain.Breakthrough;
-import breakthrough.domain.BreakthroughSurrogate;
 import breakthrough.ui.ClientInterpreter;
 import frs.broker.ClientRequestHandler;
-import frs.broker.Requestor;
-import frs.broker.ipc.http.UriTunnelClientRequestHandler;
 import frs.broker.ipc.socket.SocketClientRequestHandler;
 import frs.broker.marshall.json.StandardJSONRequestor;
 

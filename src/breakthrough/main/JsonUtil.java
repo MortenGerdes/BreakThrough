@@ -1,7 +1,6 @@
 package breakthrough.main;
 
 import com.google.gson.Gson;
-
 import spark.ResponseTransformer;
 
 /** JsonUtil is simply wrapper clases used by Spark

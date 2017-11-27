@@ -1,15 +1,6 @@
 package breakthrough.main;
-import breakthrough.domain.Breakthrough;
-import breakthrough.domain.Move;
-import breakthrough.domain.MoveState;
+
 import breakthrough.server.BreakThroughSRHAndInvoker;
-import breakthrough.server.ServerRestAdapter;
-import com.google.gson.Gson;
-
-import javax.servlet.http.HttpServletResponse;
-
-import static breakthrough.main.JsonUtil.json;
-import static spark.Spark.*;
 
 /** App server for Breakthrough, using REST.
  */

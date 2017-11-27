@@ -1,13 +1,13 @@
 package breakthrough.client;
 
 
-import breakthrough.domain.Color;
 import breakthrough.domain.Move;
 import breakthrough.domain.Position;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 /**
  * Created by csdev on 11/20/17.

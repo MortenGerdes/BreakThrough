@@ -1,11 +1,16 @@
 package frs.broker.ipc.socket;
 
-import java.io.*;
-import java.net.*;
-
 import com.google.gson.Gson;
+import frs.broker.ClientRequestHandler;
+import frs.broker.IPCException;
+import frs.broker.ReplyObject;
+import frs.broker.RequestObject;
 
-import frs.broker.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
 
 /**
  * Implementation of the client Request Handler using simple sockets.

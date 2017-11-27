@@ -1,6 +1,9 @@
 package breakthrough.doubles;
 
-import frs.broker.*;
+import frs.broker.ClientRequestHandler;
+import frs.broker.Invoker;
+import frs.broker.ReplyObject;
+import frs.broker.RequestObject;
 
 /**
  * A test double implementation of the ClientRequestHandler which simply

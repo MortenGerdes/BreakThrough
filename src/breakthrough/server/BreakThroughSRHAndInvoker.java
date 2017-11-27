@@ -6,10 +6,9 @@ import breakthrough.main.ResponseObject;
 import breakthrough.main.StatisticObject;
 import com.google.gson.Gson;
 
-import static breakthrough.main.JsonUtil.json;
-import static spark.Spark.*;
-
 import javax.servlet.http.HttpServletResponse;
+
+import static spark.Spark.*;
 
 public class BreakThroughSRHAndInvoker
 {

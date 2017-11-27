@@ -7,12 +7,11 @@ import breakthrough.main.ResponseObject;
 import com.google.gson.Gson;
 import org.junit.Before;
 import org.junit.Test;
-import spark.Response;
 
 import javax.servlet.http.HttpServletResponse;
 
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 /**
  * Created by csdev on 11/27/17.
