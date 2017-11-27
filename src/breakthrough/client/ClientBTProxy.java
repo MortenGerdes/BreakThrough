@@ -31,6 +31,7 @@ public class ClientBTProxy implements ClientProxy, Breakthrough {
 
     @Override
     public boolean move(Move move) {
+
         return requestor.sendRequestAndAwaitReply("4", Constants.MOVE, Boolean.class, move);
     }
 }
