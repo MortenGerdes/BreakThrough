@@ -1,5 +1,10 @@
 package breakthrough.main;
+import breakthrough.domain.Breakthrough;
+import breakthrough.domain.Move;
+import breakthrough.domain.MoveState;
 import breakthrough.server.ServerRestAdapter;
+import com.google.gson.Gson;
+
 import javax.servlet.http.HttpServletResponse;
 
 import static breakthrough.main.JsonUtil.json;
@@ -14,8 +19,9 @@ public class ServerMainREST {
   }
 
   public ServerMainREST() throws Exception {
-    int port = 4567;
+      int port = 4567;
       ServerRestAdapter adapter = new ServerRestAdapter();
+      Gson gson = new Gson();
 
     // TODO: Create the REST based server instance
 
@@ -28,7 +34,6 @@ public class ServerMainREST {
           res.status(HttpServletResponse.SC_NOT_FOUND);
           return "{}";
       }
-      res.body(gameState);
       res.status(HttpServletResponse.SC_OK);
       return gameState;
     }, json());
@@ -42,6 +47,23 @@ public class ServerMainREST {
         return "{}";
     }, json());
 
+    put("/breakthrough/:id", (req, res)->
+    {
+        String id = req.params(":id");
+        Move move = gson.fromJson(req.body(), Move.class);
+        Move checkedMove = adapter.putOnBreakthrough(id, move);
+
+        if(checkedMove.getStatus() == MoveState.ACCEPTED)
+        {
+            res.status(HttpServletResponse.SC_ACCEPTED);
+            return move;
+        }
+        else if(checkedMove.getStatus() == MoveState.REJECTED)
+        {
+            res.status(HttpServletResponse.SC_BAD_REQUEST);
+        }
+        return "{}";
+    }, json());
     // Welcome
     System.out.println("=== Breakthrough REST (port:"+port+") ===");
     System.out.println(" Use ctrl-c to terminate!"); 

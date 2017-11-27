@@ -2,6 +2,8 @@ package breakthrough.server;
 
 import breakthrough.domain.Breakthrough;
 import breakthrough.domain.BreakthroughSurrogate;
+import breakthrough.domain.Move;
+import breakthrough.domain.MoveState;
 import com.google.gson.Gson;
 
 import java.util.HashMap;
@@ -22,9 +24,15 @@ public class ServerRestAdapter
 
     }
 
-    public String putOnBreakthrough(String gameID, String body)
+    public Move putOnBreakthrough(String gameID, Move move)
     {
-        return null;
+        Breakthrough game = gameDB.get(Integer.getInteger(gameID));
+        move.changeState(MoveState.REJECTED);
+        if(game.move(move))
+        {
+            move.changeState(MoveState.ACCEPTED);
+        }
+        return move;
     }
 
     public String deleteOnBreakthrough(String gameID)
@@ -34,9 +42,9 @@ public class ServerRestAdapter
 
     public String getOnBreakthrough(String gameID)
     {
-        if(gameDB.containsKey(gameID))
+        if(gameDB.containsKey(Integer.getInteger(gameID)))
         {
-            return gson.toJson(gameDB.get(gameID));
+            return gson.toJson(gameDB.get(Integer.getInteger(gameID)));
         }
         return "notfound";
     }
