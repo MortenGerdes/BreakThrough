@@ -3,6 +3,7 @@ package breakthrough.server;
 import breakthrough.domain.Move;
 import breakthrough.domain.MoveState;
 import breakthrough.main.ResponseObject;
+import breakthrough.main.StatisticObject;
 import com.google.gson.Gson;
 
 import static breakthrough.main.JsonUtil.json;
@@ -35,6 +36,19 @@ public class BreakThroughSRHAndInvoker
             res.status(HttpServletResponse.SC_OK);
             res.body(response.getBody());
             return gson.toJson(response);
+        });
+
+        get("/breakthroughinfo", (req, res) ->
+        {
+            StatisticObject so = adapter.getStatsOfServer();
+            res.status(HttpServletResponse.SC_OK);
+            return "<h> Stats of the Server: <h>" +
+                    "<p>Current amount of games running: " + so.getGamesRunning() + "<p>" +
+                    "<p>Last status code sent, which was on server instance " + so.getLastCalledGame() + ": " + so.getLastStatusCode() + "<p>" +
+                    "<p>Next server instance to be created: " + so.getNextGameToBeCreated() + "<p>" +
+                    "<p>Last valid move was on server instance " + so.getLastCalledGame() + " and was: <br>" + so.getLastValidMove() + "<p>" +
+                    "<p>Last header was: " + so.getLastHeader() + "<p>" +
+                    "<p>Last header data was: " + so.getLastHeaderData() + "<p>";
         });
     }
     public void registerPostRoutes()
@@ -69,6 +83,7 @@ public class BreakThroughSRHAndInvoker
             return gson.toJson(checkedMove);
         });
     }
+
 
     public void registerAllRoutes()
     {
